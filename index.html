@@ -6,7 +6,47 @@
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
-    <h1 class="title">HTML & CSS の開発環境を用意しよう！</h1>
-    <p>hoge</p>
+    <h1 class="title">折れ線グラフ</h1>
+    <div class="graph-wrapper">
+      <canvas id="myChart"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+      <script>
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'line', // 描画するグラフの種類
+          data: { // ラベルとデータセット
+            labels: ['2016年', '2017年', '2018年', '2019年見込み', '2020年予測', '2021年予測', '2022年予測'],
+            datasets: [
+              {
+                label: "市場規模",
+                data: [3800, 3900, 4014, 4103, 4100, 4200, 4344],
+                borderColor: "rgba(255,0,0,1)",
+                bachgroundColor: "rgba(0,0,0,0)"
+              }
+            ]
+          },
+          options: { // オプション設定
+            title: {
+              display: true,
+              text: 'オーラルケア関連製品国内市場',
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  suggestedMax: 5000,
+                  suggestedMin: 0,
+                  stepSize: 500,
+                  callback: function(value, index, values) {
+                    return value + "億円"
+                  }
+                }
+              }]
+            },
+          }
+        });
+      </script>
+    </div>
+
   </body>
 </html>
