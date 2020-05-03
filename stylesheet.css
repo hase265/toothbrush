@@ -6,3 +6,20 @@ body {
   width: 50%;
   margin: auto;
 }
+
+table {
+  margin: auto;
+  width: 80%;
+  border-collapse: collapse;
+  border: solid 1px black; /* 外側の枠線 */
+}
+
+table th, table td {
+  border: dashed 1px black;  /* dashedで破線表示 */
+  text-align: center;
+}
+
+.brushing-table th {
+  border: solid 1px black;
+  background-color: lightgray;
+}
